@@ -1,0 +1,52 @@
+media:
+  input: img
+  output: /img
+  categories: [image]
+  rename: safe
+
+content:
+  - name: projects
+    label: Projects
+    type: file
+    path: content/projects.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{title}"
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text (optional)
+        type: text
+      - name: cover
+        label: Cover photo (optional — otherwise the first photo is used)
+        type: image
+      - name: photos
+        label: Photos (drag to reorder)
+        type: image
+        options:
+          multiple: true
+          extensions: [jpg, jpeg, png, webp]
+
+  - name: settings
+    label: About & contact
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: about
+        label: About text
+        type: text
+      - name: note
+        label: Small note
+        type: string
+      - name: email
+        label: Email
+        type: string
