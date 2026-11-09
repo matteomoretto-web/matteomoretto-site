@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matteo Moretto — Photographs</title>
+<meta name="description" content="Black and white analog photographs by Matteo Moretto.">
+<meta property="og:title" content="Matteo Moretto — Photographs">
+<meta property="og:image" content="https://www.matteomoretto.com/img/01.jpg">
+<link rel="preload" href="/fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Plex Mono";font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Plex Mono";font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Plex Mono";font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Plex Mono";font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Plex Mono";font-weight:400;font-style:italic;font-display:swap;src:url(/fonts/ibm-plex-mono-latin-400-italic.woff2) format("woff2")}
+
+:root{--paper:#f3f1ec;--ink:#161514;--mute:#7d7a74;--line:#d9d5cc;--mono:"Plex Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:13px;letter-spacing:.04em;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,56px)}
+.small{font-size:11px;letter-spacing:.1em;color:var(--mute)}
+
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:clamp(28px,5vw,56px) 0 clamp(44px,7vw,96px)}
+.name{font-size:15px;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+nav{display:flex;gap:22px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+nav a{color:var(--mute)} nav a:hover,nav a.on{color:var(--ink)}
+
+/* index */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(28px,4vw,56px) clamp(20px,3vw,40px)}
+.proj{display:block}
+.proj .cv{aspect-ratio:4/5;overflow:hidden;background:#e4e1da}
+.proj .cv img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .6s}
+.proj:hover .cv img{transform:scale(1.025)}
+.proj .cap{display:flex;justify-content:space-between;gap:12px;margin-top:12px}
+.proj .t{font-size:13px;letter-spacing:.06em}
+.proj .c{color:var(--mute);font-size:11px;letter-spacing:.1em}
+
+/* project page */
+.phead{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;margin-bottom:clamp(44px,7vw,96px);align-items:end}
+.phead h1{font-weight:400;font-size:clamp(22px,3vw,34px);letter-spacing:.06em;line-height:1.15}
+.phead .back{grid-column:1/-1;margin-bottom:-8px}
+.phead .back:hover{color:var(--ink)}
+.phead p{color:var(--mute);line-height:1.7;max-width:56ch;white-space:pre-line}
+.grid{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(20px,5vw,80px);row-gap:clamp(40px,7vw,104px);align-items:center}
+figure{margin:0;cursor:zoom-in}
+figure img{display:block;width:100%;height:auto;background:#e4e1da}
+figure.p{width:78%;justify-self:center}
+figure.last{grid-column:1/-1;width:50%;justify-self:center}
+figure.last.p{width:39%}
+figcaption{margin-top:10px}
+.pager{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin-top:clamp(56px,8vw,120px);padding-top:24px}
+.pager a{color:var(--mute)} .pager a:hover{color:var(--ink)}
+
+img.f{opacity:0} img.in{opacity:1}
+img{transition:opacity .6s ease}
+
+#about{border-top:1px solid var(--line);margin-top:clamp(56px,8vw,120px);padding:clamp(48px,8vw,112px) 0 clamp(40px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:40px}
+#about .lede{font-size:clamp(18px,2.2vw,26px);line-height:1.45;letter-spacing:.01em;max-width:26ch}
+#about .meta{line-height:2;align-self:end;color:var(--mute);font-size:12px}
+#about .meta a{color:var(--ink);border-bottom:1px solid var(--line)} #about .meta a:hover{border-color:var(--ink)}
+footer{padding:0 0 32px}
+.empty{color:var(--mute);padding:40px 0}
+
+#lb{position:fixed;inset:0;background:#121110;display:none;align-items:center;justify-content:center;z-index:10}
+#lb.open{display:flex}
+#lb img{max-width:92vw;max-height:86vh;width:auto;height:auto}
+#lb button{position:absolute;background:none;border:0;color:#aaa;font:inherit;font-size:12px;letter-spacing:.1em;cursor:pointer;padding:16px}
+#lb button:hover{color:#fff}
+#lb .x{top:8px;right:8px} #lb .pv{left:4px;top:50%;transform:translateY(-50%)} #lb .nx{right:4px;top:50%;transform:translateY(-50%)}
+#lb .n{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#888}
+
+@media (max-width:720px){
+  .name{font-size:13px;letter-spacing:.16em}
+  nav{gap:14px}
+  .grid,.phead,#about{grid-template-columns:1fr}
+  figure.p,figure.last,figure.last.p{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="name" href="/" id="nm">Matteo Moretto</a>
+    <nav><a href="/" id="nwork">Work</a><a href="#about">About</a></nav>
+  </header>
+  <main id="app"></main>
+  <section id="about">
+    <p class="lede" id="ab"></p>
+    <div class="meta"><span id="nt"></span><br><a id="em" href="#"></a></div>
+  </section>
+  <footer class="small">© <span id="y"></span> <span id="nm2">Matteo Moretto</span></footer>
+</div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photograph">
+  <img alt="">
+  <button class="x" aria-label="Close">CLOSE</button>
+  <button class="pv" aria-label="Previous">←</button>
+  <button class="nx" aria-label="Next">→</button>
+  <div class="n small"></div>
+</div>
+
+<script>
+(async function(){
+const $=s=>document.querySelector(s), app=$('#app');
+const pad=n=>String(n).padStart(2,'0');
+const slug=t=>t.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'project';
+// On Netlify, serve resized images through its image CDN; locally, use the originals.
+const cdn=!/^(localhost|127\.|0\.0\.0\.0)/.test(location.hostname)&&location.protocol.startsWith('http');
+const src=(u,w)=>cdn?`/.netlify/images?url=${encodeURIComponent(u)}&w=${w}&q=80`:u;
+const fade=img=>{img.classList.add('f');const on=()=>img.classList.add('in');img.complete&&img.naturalWidth?on():img.addEventListener('load',on)};
+
+const get=async u=>{try{const r=await fetch(u,{cache:'no-cache'});return r.ok?r.json():null}catch(e){return null}};
+const [projects,settings]=await Promise.all([get('/content/projects.json'),get('/content/settings.json')]);
+const P=(projects||[]).filter(p=>p&&p.title).map(p=>({...p,photos:(p.photos||[]).filter(Boolean),slug:slug(p.title)}));
+const S=settings||{};
+
+if(S.name){$('#nm').textContent=S.name;$('#nm2').textContent=S.name;}
+$('#ab').textContent=S.about||'';$('#nt').textContent=S.note||'';
+if(S.email){$('#em').textContent=S.email;$('#em').href='mailto:'+S.email}
+$('#y').textContent=new Date().getFullYear();
+
+const m=location.pathname.match(/^\/p\/([^/]+)/), q=new URLSearchParams(location.search).get('p');
+const want=m?decodeURIComponent(m[1]):q;
+const link=p=>(cdn?'/p/':'/?p=')+p.slug;
+
+if(!want){renderIndex()}else{
+  const i=P.findIndex(p=>p.slug===want);
+  i<0?renderIndex():renderProject(i);
+}
+
+function renderIndex(){
+  $('#nwork').classList.add('on');
+  if(!P.length){app.innerHTML='<p class="empty">No projects yet.</p>';return}
+  const g=document.createElement('div');g.className='projects';
+  P.forEach((p,i)=>{
+    const a=document.createElement('a');a.className='proj';a.href=link(p);
+    const cover=p.cover||p.photos[0];
+    a.innerHTML=`<div class="cv">${cover?`<img src="${src(cover,900)}" alt="" loading="${i<3?'eager':'lazy'}">`:''}</div><div class="cap"><span class="t"></span><span class="c">${pad(p.photos.length)}</span></div>`;
+    a.querySelector('.t').textContent=p.title;
+    const im=a.querySelector('img');if(im)fade(im);
+    g.appendChild(a);
+  });
+  app.appendChild(g);
+}
+
+function renderProject(i){
+  const p=P[i];document.title=`${p.title} — ${S.name||'Matteo Moretto'}`;
+  const h=document.createElement('div');h.className='phead';
+  h.innerHTML=`<a class="back small" href="/">← Index</a><h1></h1><p></p>`;
+  h.querySelector('h1').textContent=p.title;h.querySelector('p').textContent=p.text||'';
+  app.appendChild(h);
+  const g=document.createElement('div');g.className='grid';const T=pad(p.photos.length);
+  p.photos.forEach((u,k)=>{
+    const f=document.createElement('figure');
+    if(k===p.photos.length-1&&p.photos.length%2)f.classList.add('last');
+    f.innerHTML=`<img src="${src(u,1400)}" alt="${p.title} ${pad(k+1)}" loading="${k<2?'eager':'lazy'}"><figcaption class="small">${pad(k+1)} / ${T}</figcaption>`;
+    const im=f.querySelector('img');
+    const shape=()=>{if(im.naturalHeight>im.naturalWidth)f.classList.add('p')};
+    im.complete&&im.naturalWidth?shape():im.addEventListener('load',shape);fade(im);
+    f.onclick=()=>show(k);g.appendChild(f);
+  });
+  app.appendChild(g);
+  if(P.length>1){
+    const prev=P[(i-1+P.length)%P.length],next=P[(i+1)%P.length];
+    const n=document.createElement('div');n.className='pager small';
+    n.innerHTML=`<a href="${link(prev)}">← <span></span></a><a href="${link(next)}"><span></span> →</a>`;
+    n.querySelectorAll('span')[0].textContent=prev.title;n.querySelectorAll('span')[1].textContent=next.title;
+    app.appendChild(n);
+  }
+  // lightbox
+  const lb=$('#lb'),li=lb.querySelector('img'),ln=lb.querySelector('.n');let c=0;
+  function show(k){c=(k+p.photos.length)%p.photos.length;li.src=src(p.photos[c],2400);ln.textContent=`${pad(c+1)} / ${T}`;lb.classList.add('open');document.body.style.overflow='hidden'}
+  function hide(){lb.classList.remove('open');document.body.style.overflow=''}
+  lb.querySelector('.x').onclick=hide;
+  lb.querySelector('.pv').onclick=e=>{e.stopPropagation();show(c-1)};
+  lb.querySelector('.nx').onclick=e=>{e.stopPropagation();show(c+1)};
+  lb.onclick=e=>{if(e.target===lb)hide()};
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')hide();if(e.key==='ArrowLeft')show(c-1);if(e.key==='ArrowRight')show(c+1)});
+  let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(c+(d<0?1:-1))});
+}
+})();
+</script>
+</body>
+</html>
