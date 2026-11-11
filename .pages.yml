@@ -28,6 +28,20 @@ content:
         options:
           multiple: true
           extensions: [jpg, jpeg, png, webp]
+      - name: captions
+        label: Captions (optional — pick a photo and write its text)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{text}"
+        fields:
+          - name: photo
+            label: Photo
+            type: image
+          - name: text
+            label: Caption (e.g. Name, City, Year)
+            type: string
 
   - name: settings
     label: About & contact
