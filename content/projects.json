@@ -20,13 +20,21 @@
   {
     "title": "Random",
     "photos": [
-      "/img/img2026101112515077.jpg",
       "/img/02.jpg",
       "/img/01.jpg",
       "/img/07.jpg",
       "/img/03.jpg",
-      "/img/06.jpg",
-      "/img/img2026101112493836.jpg"
+      "/img/06.jpg"
+    ]
+  },
+  {
+    "title": "404",
+    "photos": [
+      "/img/img2024011411535714-1.jpg",
+      "/img/img2026101112515077-1.jpg",
+      "/img/img2024011412241763-1.jpg",
+      "/img/img2026101112493836-1.jpg",
+      "/img/img2023121922001364.jpg"
     ]
   }
 ]
