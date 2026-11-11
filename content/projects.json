@@ -5,7 +5,8 @@
       "/img/08.jpg",
       "/img/04.jpg",
       "/img/11.jpg",
-      "/img/13.jpg"
+      "/img/13.jpg",
+      "/img/img2023121919491427.jpg"
     ],
     "captions": [
       {
@@ -23,6 +24,10 @@
       {
         "photo": "/img/04.jpg",
         "text": "Montpellier (2023)"
+      },
+      {
+        "photo": "/img/img2023121919491427.jpg",
+        "text": "Asturias (2023)"
       }
     ]
   },
