@@ -6,6 +6,16 @@
       "/img/04.jpg",
       "/img/11.jpg",
       "/img/13.jpg"
+    ],
+    "captions": [
+      {
+        "photo": "/img/08.jpg",
+        "text": "Copenhagen (2025)"
+      },
+      {
+        "photo": "/img/13.jpg",
+        "text": "Copenhagen (2025)"
+      }
     ]
   },
   {
