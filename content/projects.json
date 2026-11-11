@@ -15,6 +15,14 @@
       {
         "photo": "/img/13.jpg",
         "text": "Copenhagen (2025)"
+      },
+      {
+        "photo": "/img/11.jpg",
+        "text": "Montpellier (2026)"
+      },
+      {
+        "photo": "/img/04.jpg",
+        "text": "Montpellier (2023)"
       }
     ]
   },
@@ -35,6 +43,28 @@
       "/img/07.jpg",
       "/img/03.jpg",
       "/img/06.jpg"
+    ],
+    "captions": [
+      {
+        "photo": "/img/02.jpg",
+        "text": "Asturias (2023)"
+      },
+      {
+        "photo": "/img/01.jpg",
+        "text": "Warsaw (2023)"
+      },
+      {
+        "photo": "/img/07.jpg",
+        "text": "Warsaw (2023)"
+      },
+      {
+        "photo": "/img/03.jpg",
+        "text": "Helsinki (2025)"
+      },
+      {
+        "photo": "/img/06.jpg",
+        "text": "Barcelona (2022)"
+      }
     ]
   },
   {
