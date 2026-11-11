@@ -1,8 +1,6 @@
 [
   {
     "title": "Untitled I",
-    "text": "",
-    "cover": "",
     "photos": [
       "/img/04.jpg",
       "/img/11.jpg",
@@ -12,8 +10,6 @@
   },
   {
     "title": "Untitled II",
-    "text": "",
-    "cover": "",
     "photos": [
       "/img/10.jpg",
       "/img/05.jpg",
@@ -22,9 +18,7 @@
     ]
   },
   {
-    "title": "RaNdOm",
-    "text": "",
-    "cover": "",
+    "title": "Random",
     "photos": [
       "/img/02.jpg",
       "/img/01.jpg",
