@@ -49,7 +49,9 @@ figure img{display:block;width:100%;height:auto;background:#e4e1da}
 figure.p{width:78%;justify-self:center}
 figure.last{grid-column:1/-1;width:50%;justify-self:center}
 figure.last.p{width:39%}
-figcaption{margin-top:10px}
+figcaption{margin-top:10px;display:flex;justify-content:space-between;gap:16px}
+figcaption .ct{color:var(--ink);letter-spacing:.06em}
+figcaption .no{white-space:nowrap}
 .pager{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin-top:clamp(56px,8vw,120px);padding-top:24px}
 .pager a{color:var(--mute)} .pager a:hover{color:var(--ink)}
 
@@ -65,11 +67,12 @@ footer{padding:0 0 32px}
 
 #lb{position:fixed;inset:0;background:#121110;display:none;align-items:center;justify-content:center;z-index:10}
 #lb.open{display:flex}
-#lb img{max-width:92vw;max-height:86vh;width:auto;height:auto}
+#lb img{max-width:92vw;max-height:80vh;margin-top:-24px;width:auto;height:auto}
 #lb button{position:absolute;background:none;border:0;color:#aaa;font:inherit;font-size:12px;letter-spacing:.1em;cursor:pointer;padding:16px}
 #lb button:hover{color:#fff}
 #lb .x{top:8px;right:8px} #lb .pv{left:4px;top:50%;transform:translateY(-50%)} #lb .nx{right:4px;top:50%;transform:translateY(-50%)}
-#lb .n{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#888}
+#lb .n{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#888;text-align:center;width:90vw}
+#lb .n .ct{color:#ddd;display:block;margin-bottom:6px;letter-spacing:.06em}
 
 @media (max-width:720px){
   .name{font-size:13px;letter-spacing:.16em}
@@ -114,7 +117,7 @@ const fade=img=>{img.classList.add('f');const on=()=>img.classList.add('in');
 
 const get=async u=>{try{const r=await fetch(u,{cache:'no-cache'});return r.ok?r.json():null}catch(e){return null}};
 const [projects,settings]=await Promise.all([get('/content/projects.json'),get('/content/settings.json')]);
-const P=(projects||[]).filter(p=>p&&p.title).map(p=>({...p,photos:(p.photos||[]).filter(Boolean),slug:slug(p.title)}));
+const P=(projects||[]).filter(p=>p&&p.title).map(p=>{const cap={};(p.captions||[]).forEach(c=>{if(c&&c.photo&&c.text)cap[c.photo]=c.text});return {...p,photos:(p.photos||[]).filter(Boolean),cap,slug:slug(p.title)}});
 const S=settings||{};
 
 if(S.name){$('#nm').textContent=S.name;$('#nm2').textContent=S.name;}
@@ -156,7 +159,8 @@ function renderProject(i){
   p.photos.forEach((u,k)=>{
     const f=document.createElement('figure');
     if(k===p.photos.length-1&&p.photos.length%2)f.classList.add('last');
-    f.innerHTML=`<img src="${src(u,1600)}" data-orig="${u}" alt="${p.title} ${pad(k+1)}" loading="${k<2?'eager':'lazy'}"><figcaption class="small">${pad(k+1)} / ${T}</figcaption>`;
+    f.innerHTML=`<img src="${src(u,1600)}" data-orig="${u}" alt="${p.title} ${pad(k+1)}" loading="${k<2?'eager':'lazy'}"><figcaption class="small"><span class="ct"></span><span class="no">${pad(k+1)} / ${T}</span></figcaption>`;
+    f.querySelector('.ct').textContent=p.cap[u]||'';
     const im=f.querySelector('img');
     const shape=()=>{if(im.naturalHeight>im.naturalWidth)f.classList.add('p')};
     im.complete&&im.naturalWidth?shape():im.addEventListener('load',shape);fade(im);
@@ -172,7 +176,7 @@ function renderProject(i){
   }
   // lightbox
   const lb=$('#lb'),li=lb.querySelector('img'),ln=lb.querySelector('.n');let c=0;
-  function show(k){c=(k+p.photos.length)%p.photos.length;li.onerror=()=>{li.onerror=null;li.src=p.photos[c]};li.src=src(p.photos[c],2400);ln.textContent=`${pad(c+1)} / ${T}`;lb.classList.add('open');document.body.style.overflow='hidden'}
+  function show(k){c=(k+p.photos.length)%p.photos.length;li.onerror=()=>{li.onerror=null;li.src=p.photos[c]};li.src=src(p.photos[c],2400);ln.innerHTML='<span class="ct"></span>'+`${pad(c+1)} / ${T}`;ln.querySelector('.ct').textContent=p.cap[p.photos[c]]||'';lb.classList.add('open');document.body.style.overflow='hidden'}
   function hide(){lb.classList.remove('open');document.body.style.overflow=''}
   lb.querySelector('.x').onclick=hide;
   lb.querySelector('.pv').onclick=e=>{e.stopPropagation();show(c-1)};
